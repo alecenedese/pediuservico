@@ -1,0 +1,24 @@
+# Blueprint do Render — app PHP (Docker) + MySQL EXTERNO.
+# O Render NÃO oferece MySQL gratuito: provisione um banco MySQL externo
+# (ex.: Clever Cloud, Aiven) e importe schema-dev.sql + seed-dev.sql nele.
+# Depois preencha as variáveis DB_* abaixo no painel do Render.
+services:
+  - type: web
+    name: pediuservico
+    runtime: docker
+    plan: free
+    branch: claude/hopeful-galileo-1gbspp
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        sync: false   # host do MySQL externo
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: BASE_URL
+        value: "/"

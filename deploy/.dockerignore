@@ -1,0 +1,9 @@
+.git
+.gitignore
+send.php
+config.php
+conexao.php
+**/send.php
+*.log
+node_modules
+vendor
