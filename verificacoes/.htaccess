@@ -1,0 +1,8 @@
+# Protege documentos sensíveis de verificação contra acesso público direto.
+# Os arquivos só devem ser servidos pelo endpoint autenticado do admin
+# (adm2/verificacao-arquivo.php) ou pela própria página do usuário.
+Order Deny,Allow
+Deny from all
+
+# Desabilita listagem de diretório
+Options -Indexes

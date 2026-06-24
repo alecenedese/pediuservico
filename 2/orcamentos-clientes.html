@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Orçamentos - USERVICE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Using standard USERVICE header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 16px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .header .logo {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-button {
+            background: #00d4ff;
+            color: #1a2332;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #00f0ff;
+            transform: translateY(-1px);
+        }
+
+        /* Simplified main content layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        /* Simplified tabs using USERVICE button styling */
+        .tabs-container {
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .tab {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            border: 2px solid #00f0ff;
+            color: #1a2332;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tab:not(.active) {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .tab-badge {
+            background: #1a2332;
+            color: #00d4ff;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            font-size: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 3px;
+        }
+
+        /* Simplified content container */
+        .content-container {
+            flex: 1;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 0.5rem;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .carousel-container {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0.2rem;
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
+            justify-content: flex-start;
+        }
+
+        /* Compact order card styling */
+        .order-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 6px;
+            padding: 0.5rem;
+            border-left: 3px solid #00d4ff;
+            margin-bottom: 0.3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 0.15rem);
+            min-width: 0;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-number {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #1a2332;
+        }
+
+        .status-badge {
+            padding: 0.15rem 0.4rem;
+            border-radius: 10px;
+            font-size: 0.55rem;
+            font-weight: 600;
+        }
+
+        .status-aceito {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-analise {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .order-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3rem;
+            font-size: 0.6rem;
+        }
+
+        .info-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6px;
+            color: white;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .icon-user { background: #6c757d; }
+        .icon-calendar { background: #17a2b8; }
+        .icon-clock { background: #ffc107; }
+        .icon-service { background: #6f42c1; }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.5rem;
+            margin-bottom: 1px;
+        }
+
+        .info-value {
+            color: #1a2332;
+            font-weight: 500;
+            font-size: 0.6rem;
+            line-height: 1.1;
+        }
+
+        .description {
+            margin: 0.4rem 0;
+            padding: 0.3rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 4px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .description-label {
+            font-size: 0.5rem;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+
+        .description-text {
+            font-size: 0.6rem;
+            color: #1a2332;
+            line-height: 1.2;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.4rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.3rem 0.4rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contraproposta {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-mensagem {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-mapa {
+            background: #00d4ff;
+            color: #1a2332;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 0.3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(0, 212, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-dot.active {
+            background: #00d4ff;
+        }
+
+        .no-orders {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #00d4ff;
+            opacity: 0.7;
+        }
+
+        .no-orders-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">USERVICE</div>
+        <a href="mapa-prestadores.html" class="back-button">← Voltar</a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Meus Orçamentos</div>
+            <div class="page-subtitle">Acompanhe seus pedidos em tempo real</div>
+        </div>
+
+        <div class="tabs-container">
+            <button class="tab active" onclick="switchTab('pendentes')">
+                Pendentes <span class="tab-badge" id="pendentes-count">3</span> <!-- Updated count to 3 -->
+            </button>
+            <button class="tab" onclick="switchTab('aceitos')">
+                Já Aceitos <span class="tab-badge" id="aceitos-count">3</span> <!-- Updated count to 3 -->
+            </button>
+        </div>
+
+        <div class="content-container">
+            <div class="carousel-container" id="pendentes-content">
+                <div class="carousel-track" id="pendentes-track">
+                    <!-- First slide with 2 pendentes orders -->
+                    <div class="carousel-slide">
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #386</div>
+                                <div class="status-badge status-analise">Em análise</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">01/09/2025<br>18:47:52</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Aguardando<br>Prestador aceitar</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Instalação de ar condicionado</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-mapa">📍 Ver no Mapa</button>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #387</div>
+                                <div class="status-badge status-analise">Em análise</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">02/09/2025<br>10:15:30</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Aguardando<br>Prestador aceitar</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Reparo de encanamento</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-mapa">📍 Ver no Mapa</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second slide with 1 pendente order -->
+                    <div class="carousel-slide">
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #388</div>
+                                <div class="status-badge status-analise">Em análise</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">03/09/2025<br>16:22:45</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Aguardando<br>Prestador aceitar</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Limpeza de piscina</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-mapa">📍 Ver no Mapa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav" id="pendentes-nav">
+                    <div class="nav-dot active" onclick="goToSlide('pendentes', 0)"></div> <!-- Added onclick -->
+                    <div class="nav-dot" onclick="goToSlide('pendentes', 1)"></div> <!-- Added second dot -->
+                </div>
+            </div>
+
+            <div class="carousel-container" id="aceitos-content" style="display: none;">
+                <div class="carousel-track" id="aceitos-track">
+                    <!-- First slide with 2 aceitos orders -->
+                    <div class="carousel-slide">
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #361</div>
+                                <div class="status-badge status-aceito">Aceito</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-user">👤</div>
+                                    <div class="info-content">
+                                        <div class="info-label">PRESTADOR</div>
+                                        <div class="info-value">Rodrigo Wollinger Campos</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">01/09/2025<br>18:47:52</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Agendado para 22/04/2025 às 14:20</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-service">⚡</div>
+                                    <div class="info-content">
+                                        <div class="info-label">SERVIÇO</div>
+                                        <div class="info-value">Adega<br>Assistência técnica</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Instalação de adega climatizada</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-contraproposta">⚠️ Contraproposta</button>
+                                <button class="btn btn-mensagem">💬 Mensagem</button>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #359</div>
+                                <div class="status-badge status-aceito">Aceito</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-user">👤</div>
+                                    <div class="info-content">
+                                        <div class="info-label">PRESTADOR</div>
+                                        <div class="info-value">Alessandro Cenedese</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">30/08/2025<br>14:30:15</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Agendado para 25/04/2025 às 09:00</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-service">⚡</div>
+                                    <div class="info-content">
+                                        <div class="info-label">SERVIÇO</div>
+                                        <div class="info-value">Limpeza<br>Residencial</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Limpeza completa da casa</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-contraproposta">⚠️ Contraproposta</button>
+                                <button class="btn btn-mensagem">💬 Mensagem</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second slide with 1 aceito order -->
+                    <div class="carousel-slide">
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div class="order-number">Número #355</div>
+                                <div class="status-badge status-aceito">Aceito</div>
+                            </div>
+                            
+                            <div class="order-info">
+                                <div class="info-item">
+                                    <div class="info-icon icon-user">👤</div>
+                                    <div class="info-content">
+                                        <div class="info-label">PRESTADOR</div>
+                                        <div class="info-value">Carlos Silva</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-calendar">📅</div>
+                                    <div class="info-content">
+                                        <div class="info-label">DATA E HORA</div>
+                                        <div class="info-value">28/08/2025<br>11:20:30</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-clock">⏰</div>
+                                    <div class="info-content">
+                                        <div class="info-label">TEMPO ESTIMADO</div>
+                                        <div class="info-value">Agendado para 20/04/2025 às 15:30</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon icon-service">⚡</div>
+                                    <div class="info-content">
+                                        <div class="info-label">SERVIÇO</div>
+                                        <div class="info-value">Jardinagem<br>Paisagismo</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <div class="description-label">📋 Descrição do Serviço:</div>
+                                <div class="description-text">Manutenção do jardim e poda de árvores</div>
+                            </div>
+
+                            <div class="order-actions">
+                                <button class="btn btn-contraproposta">⚠️ Contraproposta</button>
+                                <button class="btn btn-mensagem">💬 Mensagem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav" id="aceitos-nav">
+                    <div class="nav-dot active" onclick="goToSlide('aceitos', 0)"></div>
+                    <div class="nav-dot" onclick="goToSlide('aceitos', 1)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'pendentes';
+        let currentSlides = { pendentes: 0, aceitos: 0 };
+
+        function switchTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update content
+            document.getElementById('pendentes-content').style.display = tab === 'pendentes' ? 'block' : 'none';
+            document.getElementById('aceitos-content').style.display = tab === 'aceitos' ? 'block' : 'none';
+
+            currentTab = tab;
+        }
+
+        function goToSlide(tab, slideIndex) {
+            const track = document.getElementById(`${tab}-track`);
+            const dots = document.querySelectorAll(`#${tab}-nav .nav-dot`);
+            
+            // Update track position
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+            
+            currentSlides[tab] = slideIndex;
+        }
+
+        // Touch/swipe support
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        document.querySelectorAll('.carousel-track').forEach(track => {
+            track.addEventListener('touchstart', handleStart, { passive: true });
+            track.addEventListener('touchmove', handleMove, { passive: true });
+            track.addEventListener('touchend', handleEnd, { passive: true });
+            
+            track.addEventListener('mousedown', handleStart);
+            track.addEventListener('mousemove', handleMove);
+            track.addEventListener('mouseup', handleEnd);
+        });
+
+        function handleStart(e) {
+            isDragging = true;
+            startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        }
+
+        function handleMove(e) {
+            if (!isDragging) return;
+            currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+        }
+
+        function handleEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = startX - currentX;
+            const threshold = 50;
+            
+            if (Math.abs(diffX) > threshold) {
+                const maxSlides = currentTab === 'pendentes' ? 2 : 2; // Updated max slides for both tabs
+                let newSlide = currentSlides[currentTab];
+                
+                if (diffX > 0 && newSlide < maxSlides - 1) {
+                    newSlide++;
+                } else if (diffX < 0 && newSlide > 0) {
+                    newSlide--;
+                }
+                
+                goToSlide(currentTab, newSlide);
+            }
+        }
+    </script>
+</body>
+</html>

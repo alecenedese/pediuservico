@@ -1,0 +1,39 @@
+{
+  "name": "Pediu Serviço",
+  "short_name": "PediuServiço",
+  "description": "Encontre prestadores de serviço perto de você",
+  "start_url": "/pediuservico/buscar.php",
+  "scope": "/pediuservico/",
+  "display": "standalone",
+  "background_color": "#1a2332",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/pediuservico/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pediuservico/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pediuservico/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pediuservico/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "lifestyle"],
+  "lang": "pt-BR"
+}

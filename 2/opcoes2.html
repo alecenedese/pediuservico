@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USERVICE - Quando você precisa do serviço?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8rem;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-btn {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            border: 2px solid #00f0ff;
+            color: #1a2332;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.5);
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.15), rgba(0, 240, 255, 0.1));
+            border: 2px solid #00f0ff;
+            border-radius: 8px;
+            padding: 0.8rem; /* reduzindo padding de 1rem para 0.8rem */
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 0.9rem; /* reduzindo font-size de 1rem para 0.9rem */
+            font-weight: bold;
+            color: #00f0ff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .card-subtitle {
+            text-align: center;
+            font-size: 0.7rem; /* reduzindo font-size de 0.8rem para 0.7rem */
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .time-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .time-option {
+            width: 100%;
+            padding: 0.7rem; /* reduzindo padding de 0.8rem para 0.7rem */
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.3), rgba(0, 240, 255, 0.4));
+            border: 2px solid #00f0ff;
+            border-radius: 6px;
+            color: #00f0ff;
+            font-size: 0.7rem; /* reduzindo font-size de 0.8rem para 0.7rem */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .time-option:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.5), rgba(64, 255, 255, 0.6));
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+            border-color: #40ffff;
+        }
+
+        .time-option.selected {
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.6), rgba(64, 255, 255, 0.7));
+            border-color: #40ffff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .time-option.emergency {
+            border-color: rgba(255, 100, 100, 0.5);
+            background: linear-gradient(145deg, rgba(255, 100, 100, 0.3), rgba(255, 150, 150, 0.4));
+        }
+
+        .time-option.emergency:hover,
+        .time-option.emergency.selected {
+            border-color: #ff6464;
+            background: linear-gradient(145deg, rgba(255, 100, 100, 0.5), rgba(255, 150, 150, 0.6));
+        }
+
+        .option-icon {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+            color: #00f0ff;
+        }
+
+        .emergency .option-icon {
+            color: #ff6464;
+        }
+
+        .date-time-section {
+            border-top: 2px solid rgba(0, 240, 255, 0.3);
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .date-time-section.active {
+            display: block;
+        }
+
+        .date-time-title {
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #00f0ff;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .date-time-inputs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .input-group label {
+            font-size: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .input-group input {
+            padding: 0.4rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 2px solid rgba(0, 240, 255, 0.3);
+            border-radius: 4px;
+            color: white;
+            font-size: 0.6rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #00f0ff;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .error-message {
+            color: #ff6464;
+            font-size: 0.5rem;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .footer-btn {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            border: 2px solid #00f0ff;
+            color: #1a2332;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .footer-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.5);
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+        }
+
+        .footer-btn:disabled {
+            background: rgba(100, 100, 100, 0.5);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: rgba(100, 100, 100, 0.5);
+        }
+
+        .footer-btn.ghost {
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.3), rgba(0, 240, 255, 0.4));
+            color: #00f0ff;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .footer-btn.ghost:hover {
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.5), rgba(64, 255, 255, 0.6));
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .date-time-inputs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">USERVICE</div>
+        <button class="back-btn" onclick="window.history.back()">← Voltar</button>
+    </div>
+
+    <div class="main-content">
+        <div class="card">
+            <div class="card-title">Quando você precisa do serviço?</div>
+            <div class="card-subtitle">Escolha o prazo ideal para início do atendimento</div>
+            
+            <div class="time-options" id="timeOptions">
+                <button class="time-option emergency" data-value="emergency">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c6-3 10-8.5 10-13.5a6.5 6.5 0 0 0-13 0c0 5 4 10.5 10 13.5"/>
+                        <line x1="12" y1="7" x2="12" y2="13"/>
+                        <line x1="12" y1="15" x2="12" y2="15.5"/>
+                    </svg>
+                    Até 1 hora (Emergência)
+                </button>
+                
+                <button class="time-option" data-value="today-anytime">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    Pra hoje, em qualquer horário
+                </button>
+                
+                <button class="time-option" data-value="today-business">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Pra hoje no horário comercial
+                </button>
+                
+                <button class="time-option" data-value="specific-date-time">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                        <circle cx="12" cy="16" r="1"/>
+                    </svg>
+                    Agendar data e hora específicas
+                </button>
+            </div>
+
+            <div class="date-time-section" id="dateTimeSection">
+                <div class="date-time-title">Selecione a data e horário desejados</div>
+                <div class="date-time-inputs">
+                    <div class="input-group">
+                        <label for="dateInput">Data</label>
+                        <input type="date" id="dateInput" min="">
+                    </div>
+                    <div class="input-group">
+                        <label for="timeInput">Horário</label>
+                        <input type="time" id="timeInput">
+                        <div id="timeError" class="error-message">Por favor, selecione um horário válido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button class="footer-btn ghost" onclick="window.history.back()">Voltar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeOptions = document.getElementById('timeOptions');
+            const dateTimeSection = document.getElementById('dateTimeSection');
+            const dateInput = document.getElementById('dateInput');
+            const timeInput = document.getElementById('timeInput');
+            
+            let selectedOption = null;
+            let selectedDate = null;
+            let selectedTime = null;
+
+            // Define data mínima como hoje
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            // Manipula cliques nas opções de tempo
+            timeOptions.addEventListener('click', function(event) {
+                const clickedOption = event.target.closest('.time-option');
+                if (clickedOption) {
+                    // Remove seleção de todas as opções
+                    const options = timeOptions.querySelectorAll('.time-option');
+                    options.forEach(option => option.classList.remove('selected'));
+                    
+                    // Adiciona seleção à opção clicada
+                    clickedOption.classList.add('selected');
+                    selectedOption = clickedOption.dataset.value;
+                    
+                    // Mostra ou esconde a seção de data/hora
+                    if (selectedOption === 'specific-date-time') {
+                        dateTimeSection.classList.add('active');
+                    } else {
+                        dateTimeSection.classList.remove('active');
+                        handleAutoRedirect();
+                    }
+                }
+            });
+
+            // Valida seleção de data
+            dateInput.addEventListener('change', function() {
+                selectedDate = this.value;
+                checkSpecificDateTime();
+            });
+
+            // Valida seleção de hora
+            timeInput.addEventListener('change', function() {
+                selectedTime = this.value;
+                checkSpecificDateTime();
+            });
+
+            function checkSpecificDateTime() {
+                if (selectedOption === 'specific-date-time' && selectedDate && selectedTime) {
+                    handleAutoRedirect();
+                }
+            }
+
+            function handleAutoRedirect() {
+                if (selectedOption) {
+                    let tempoParam = '';
+                    
+                    if (selectedOption === 'specific-date-time' && selectedDate && selectedTime) {
+                        const dateObj = new Date(selectedDate);
+                        const formattedDate = dateObj.toLocaleDateString('pt-BR');
+                        tempoParam = `Agendado para ${formattedDate} às ${selectedTime}`;
+                    } else if (selectedOption === 'emergency') {
+                        tempoParam = 'Até 1 hora (Emergência)';
+                    } else if (selectedOption === 'today-anytime') {
+                        tempoParam = 'Pra hoje, em qualquer horário';
+                    } else if (selectedOption === 'today-business') {
+                        tempoParam = 'Pra hoje no horário comercial';
+                    }
+                    
+                    setTimeout(() => {
+                        window.location.href = `queroencontrar3.html?tempo=${encodeURIComponent(tempoParam)}`;
+                    }, 300);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

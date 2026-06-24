@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestadores Disponíveis - USERVICE</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .header .logo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-button {
+            background: #00d4ff;
+            color: #1a2332;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #00f0ff;
+            transform: translateY(-1px);
+        }
+
+        .map-container {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            /* Adicionando opacidade ao mapa para não atrapalhar a listagem */
+            opacity: 0.3;
+        }
+
+        .providers-section {
+            /* Posicionando a lista sobre o mapa */
+            position: absolute;
+            top: 60px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            background: rgba(26, 35, 50, 0.9);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 8px;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .providers-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .providers-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: #00f0ff;
+        }
+
+        .loading-spinner {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #00d4ff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .providers-list {
+            /* Mudando para grid de 3 colunas lado a lado */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .provider-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 6px;
+            padding: 6px;
+            transition: all 0.3s ease;
+            /* Reduzindo tamanho para caber 3 lado a lado */
+            min-height: 120px;
+        }
+
+        .provider-card:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .provider-card.offline {
+            opacity: 0.6;
+            filter: grayscale(50%);
+        }
+
+        .provider-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .provider-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #1a2332;
+            position: relative;
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #1a2332;
+        }
+
+        .online-indicator.available {
+            background: #22c55e;
+        }
+
+        .online-indicator.offline {
+            background: #9ca3af;
+        }
+
+        .provider-info {
+            flex: 1;
+        }
+
+        .provider-name {
+            font-size: 11px;
+            font-weight: bold;
+            color: #00f0ff;
+            margin-bottom: 2px;
+        }
+
+        .provider-rating {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 10px;
+            color: #fbbf24;
+            margin-bottom: 2px;
+        }
+
+        .provider-details {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 6px;
+        }
+
+        .provider-buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .provider-button {
+            flex: 1;
+            padding: 3px 6px;
+            border: none;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .provider-button.primary {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            color: #1a2332;
+        }
+
+        .provider-button.primary:hover {
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+            transform: translateY(-1px);
+        }
+
+        .provider-button.secondary {
+            background: rgba(255, 165, 0, 0.8);
+            color: white;
+        }
+
+        .provider-button.secondary:hover {
+            background: rgba(255, 165, 0, 1);
+            transform: translateY(-1px);
+        }
+
+        .provider-button.disabled {
+            background: rgba(156, 163, 175, 0.5);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .modal-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #00d4ff;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .modal-body {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .slide-in-top {
+            animation: slideInTop 0.5s ease forwards;
+        }
+
+        @keyframes slideInTop {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">USERVICE</div>
+        <a href="opcoes2.html" class="back-button">← Voltar</a>
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="providers-section">
+            <div class="providers-header">
+                <div class="providers-title">Prestadores Disponíveis</div>
+                <div class="status-indicator">
+                    <div class="loading-spinner" id="loading-spinner"></div>
+                    <span id="status-text">Buscando...</span>
+                </div>
+            </div>
+
+            <div class="providers-list" id="providers-list">
+                 Prestadores serão inseridos aqui via JavaScript 
+            </div>
+        </div>
+    </div>
+
+    <div id="contraproposta-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title">Contraproposta</div>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-content">
+                 Conteúdo será inserido aqui 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let mapMarkers = {};
+        let previousProviders = {};
+
+        // Dados simulados de prestadores
+        const mockProviders = [
+            {
+                id: '1',
+                name: 'Alessandro Cenedese',
+                rating: '1',
+                profession: 'Eletricista',
+                distance: '3.6 km',
+                availability: 'Disponível agora',
+                location: [-11.8548, -55.5017],
+                avatar: 'AC',
+                contraproposta: ''
+            },
+            {
+                id: '2',
+                name: 'Rodrigo Wollinger Campos',
+                rating: '1',
+                profession: 'Encanador',
+                distance: '3.1 km',
+                availability: 'Aguardando prestador aceitar',
+                location: [-11.8600, -55.5100],
+                avatar: 'RC',
+                contraproposta: 'Posso fazer o serviço por R$ 150,00 com garantia de 6 meses'
+            },
+            {
+                id: '3',
+                name: 'Maria Silva Santos',
+                rating: '5',
+                profession: 'Pintora',
+                distance: '2.8 km',
+                availability: 'Disponível agora',
+                location: [-11.8500, -55.4950],
+                avatar: 'MS',
+                contraproposta: ''
+            }
+        ];
+
+        function initMap() {
+            map = L.map('map', {
+                zoomControl: true,
+                dragging: true,
+                scrollWheelZoom: true,
+                attributionControl: false
+            }).setView([-11.8548, -55.5017], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        }
+
+        function createProviderCard(provider, isNewlyAvailable) {
+            const isAvailableNow = provider.availability === "Disponível agora";
+            const animationClass = isNewlyAvailable ? 'slide-in-top' : '';
+            const offlineClass = isAvailableNow ? '' : 'offline';
+            const indicatorClass = isAvailableNow ? 'available' : 'offline';
+            
+            const hasContraproposta = provider.contraproposta && provider.contraproposta !== '';
+            
+            let buttonsHtml = '';
+            if (hasContraproposta) {
+                buttonsHtml = `
+                    <button onclick="showContraproposta('${provider.id}', '${provider.name}', '${provider.contraproposta}')" class="provider-button secondary">
+                        Ver Contraproposta
+                    </button>
+                    <button onclick="pegarContato('${provider.id}', '${provider.name}')" class="provider-button ${isAvailableNow ? 'primary' : 'disabled'}" ${!isAvailableNow ? 'disabled' : ''}>
+                        Pegar Contato
+                    </button>
+                `;
+            } else {
+                buttonsHtml = `
+                    <button onclick="pegarContato('${provider.id}', '${provider.name}')" class="provider-button ${isAvailableNow ? 'primary' : 'disabled'}" ${!isAvailableNow ? 'disabled' : ''}>
+                        Pegar Contato
+                    </button>
+                `;
+            }
+
+            return `
+                <div class="provider-card ${offlineClass} ${animationClass}" data-id="${provider.id}">
+                    <div class="provider-header">
+                        <div class="provider-avatar">
+                            ${provider.avatar}
+                            <span class="online-indicator ${indicatorClass}"></span>
+                        </div>
+                        <div class="provider-info">
+                            <div class="provider-name">${provider.name}</div>
+                            <div class="provider-rating">
+                                ★ ${provider.rating}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="provider-details">
+                        <span>📍 ${provider.distance}</span>
+                        <span>⏰ ${provider.availability}</span>
+                    </div>
+                    <div class="provider-buttons">
+                        ${buttonsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function showContraproposta(id, name, contraproposta) {
+            const modal = document.getElementById('contraproposta-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = `Contraproposta de ${name}`;
+            modalContent.innerHTML = `
+                <div>
+                    <h4 style="color: #00d4ff; margin-bottom: 8px;">Detalhes da Contraproposta:</h4>
+                    <p>${contraproposta}</p>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contraproposta-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function pegarContato(id, name) {
+            window.location.href = 'login-cliente.html';
+        }
+
+        function updateProvidersDisplay(providers) {
+            const providersList = document.getElementById('providers-list');
+            const statusText = document.getElementById('status-text');
+            
+            // Separa prestadores disponíveis e aguardando
+            const availableProviders = providers.filter(p => p.availability === "Disponível agora");
+            const waitingProviders = providers.filter(p => p.availability !== "Disponível agora");
+            
+            // Limpa a lista
+            providersList.innerHTML = '';
+            
+            // Adiciona prestadores disponíveis primeiro
+            availableProviders.forEach(provider => {
+                providersList.innerHTML += createProviderCard(provider, false);
+            });
+            
+            // Depois adiciona os aguardando
+            waitingProviders.forEach(provider => {
+                providersList.innerHTML += createProviderCard(provider, false);
+            });
+            
+            // Atualiza marcadores no mapa
+            updateMapMarkers(providers);
+            
+            statusText.textContent = `${availableProviders.length} disponível(is)`;
+        }
+
+        function updateMapMarkers(providers) {
+            // Remove marcadores antigos
+            Object.values(mapMarkers).forEach(marker => {
+                map.removeLayer(marker);
+            });
+            mapMarkers = {};
+            
+            // Adiciona novos marcadores
+            providers.forEach(provider => {
+                if (provider.location && provider.location.length === 2) {
+                    const isAvailable = provider.availability === "Disponível agora";
+                    const iconColor = isAvailable ? 'green' : 'grey';
+                    
+                    const icon = L.icon({
+                        iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconColor}.png`,
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    });
+                    
+                    mapMarkers[provider.id] = L.marker(provider.location, { icon: icon })
+                        .bindPopup(`<b>${provider.name}</b><br>${provider.profession}<br>${provider.availability}`)
+                        .addTo(map);
+                }
+            });
+            
+            // Ajusta visualização do mapa
+            if (providers.length > 0) {
+                const bounds = providers
+                    .filter(p => p.location && p.location.length === 2)
+                    .map(p => p.location);
+                
+                if (bounds.length > 0) {
+                    map.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
+                }
+            }
+        }
+
+        function fetchProviders() {
+            const spinner = document.getElementById('loading-spinner');
+            const statusText = document.getElementById('status-text');
+            
+            spinner.style.display = 'block';
+            statusText.textContent = 'Atualizando...';
+            
+            // Simula busca de dados
+            setTimeout(() => {
+                updateProvidersDisplay(mockProviders);
+                spinner.style.display = 'none';
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            fetchProviders();
+            
+            // Atualiza a cada 5 segundos
+            setInterval(fetchProviders, 5000);
+            
+            // Fecha modal ao clicar fora
+            document.getElementById('contraproposta-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

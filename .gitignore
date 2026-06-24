@@ -1,0 +1,173 @@
+# ==========================================
+# ARQUIVOS SENSÍVEIS - NÃO ENVIAR!
+# ==========================================
+config.php
+conexao.php
+db.php
+
+# Certificados e chaves Android
+*.keystore
+*.jks
+*.pem
+upload-key.jks
+meu-keystore.keystore
+nova-upload-key.jks
+@alecenedese__my-app.jks
+@alecenedese__my-app.bak.jks
+
+# Credenciais
+credentials.json
+.env
+.env.local
+.env.production
+
+# ==========================================
+# NODE_MODULES E DEPENDÊNCIAS
+# ==========================================
+node_modules/
+vendor/
+bower_components/
+
+# ==========================================
+# PASTAS DE BUILD
+# ==========================================
+build/
+dist/
+.expo/
+.expo-shared/
+android/build/
+android/app/build/
+ios/build/
+
+# ==========================================
+# ARQUIVOS COMPILADOS (APK/AAB)
+# ==========================================
+*.apk
+*.aab
+*.ipa
+
+# ==========================================
+# ARQUIVOS TEMPORÁRIOS
+# ==========================================
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# LOGS
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+debug.log
+
+# ==========================================
+# BACKUPS E COMPACTADOS
+# ==========================================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.sql.gz
+backup/
+backups/
+
+# ==========================================
+# IDEs E EDITORES
+# ==========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# ==========================================
+# GRADLE (Android)
+# ==========================================
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+local.properties
+
+# ==========================================
+# CACHE
+# ==========================================
+.cache/
+*.cache
+metro-cache/
+.metro-cache/
+.webpack-cache/
+
+# ==========================================
+# UPLOADS E MÍDIA (OPCIONAL)
+# ==========================================
+# uploads/
+# imagens/
+# fotos/
+
+# ==========================================
+# OUTROS
+# ==========================================
+.git/
+.gitattributes
+*.orig
+*.lock
+package-lock.json
+yarn.lock
+composer.lock
+
+# ==========================================
+# SEGREDOS DO PROJETO (CRÍTICO - NÃO ENVIAR!)
+# ==========================================
+# send.php contém a senha do banco de dados
+send.php
+**/send.php
+# Chaves VAPID (web push)
+api/vapid-keys.php
+**/vapid-keys.php
+# Config do banco em subpastas
+token/config.php
+**/token/config.php
+
+# ==========================================
+# FIREBASE / FCM (CRÍTICO)
+# ==========================================
+google-services.json
+**/google-services.json
+*firebase-adminsdk*.json
+**/*firebase-adminsdk*.json
+serviceAccountKey*.json
+**/serviceAccountKey*.json
+
+# ==========================================
+# LOGS DE PUSH / DEBUG
+# ==========================================
+log_push.txt
+log_push_tokens.txt
+**/log_push.txt
+**/log_push_tokens.txt
+.push_fila.lock
+**/.push_fila.lock
+
+# ==========================================
+# REPOS EMBUTIDOS (apps têm git próprio)
+# ==========================================
+my-app/.git/
+app-android/.git/
+
+# ==========================================
+# APP NATIVO - NÃO ENVIAR (pasta inteira)
+# ==========================================
+my-app/
+app-android/

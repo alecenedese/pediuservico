@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Cliente - USERVICE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .header .logo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-button {
+            background: #00d4ff;
+            color: #1a2332;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #00f0ff;
+            transform: translateY(-1px);
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 6px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            color: #9ca3af;
+        }
+
+        .tab.active {
+            color: #00d4ff;
+            border-bottom-color: #00d4ff;
+        }
+
+        .tab:hover {
+            color: #00d4ff;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .user-icon {
+            width: 32px;
+            height: 32px;
+            background: #00d4ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            font-size: 10px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: #00d4ff;
+            color: #1a2332;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .submit-button:hover {
+            background: #00f0ff;
+            transform: translateY(-1px);
+        }
+
+        .form-link {
+            font-size: 10px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .form-link a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-link a:hover {
+            text-decoration: underline;
+        }
+
+        .terms-text {
+            font-size: 8px;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        .terms-text a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">USERVICE</div>
+        <a href="mapa-prestadores.html" class="back-button">← Voltar</a>
+    </div>
+
+    <div class="main-container">
+        <div class="login-card">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('login')">Entrar</div>
+                <div class="tab" onclick="switchTab('register')">Cadastrar</div>
+            </div>
+
+            <!-- Formulário de Login -->
+            <div id="login-form" class="form-section active">
+                <div class="form-container">
+                    <div class="user-icon">👤</div>
+                    <h2 class="form-title">Bem-vindo!</h2>
+                    <p class="form-subtitle">Seu número de celular</p>
+                    
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <input 
+                                type="tel" 
+                                class="form-input" 
+                                placeholder="(00) 00000-0000"
+                                id="login-phone"
+                                required
+                            >
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Entrar</button>
+                        
+                        <div class="form-link">
+                            Não tem uma conta? <a href="#" onclick="switchTab('register')">Cadastre-se</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Formulário de Cadastro -->
+            <div id="register-form" class="form-section">
+                <div class="form-container">
+                    <div class="user-icon">👥</div>
+                    <h2 class="form-title">Crie sua conta</h2>
+                    
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label class="form-label">Nome completo</label>
+                            <input 
+                                type="text" 
+                                class="form-input" 
+                                placeholder="Seu nome completo"
+                                id="register-name"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Número de celular</label>
+                            <input 
+                                type="tel" 
+                                class="form-input" 
+                                placeholder="(00) 00000-0000"
+                                id="register-phone"
+                                required
+                            >
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Criar conta</button>
+                        
+                        <div class="form-link">
+                            Já tem uma conta? <a href="#" onclick="switchTab('login')">Faça login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="terms-text">
+                Ao continuar, você concorda com nossos 
+                <a href="#">Termos de Serviço</a> e 
+                <a href="#">Política de Privacidade</a>.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Remove active class from all tabs and forms
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding form
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-form').classList.add('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const phone = document.getElementById('login-phone').value;
+            
+            if (phone) {
+                
+                
+                 window.location.href = 'dashboard.html';
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const phone = document.getElementById('register-phone').value;
+            
+            if (name && phone) {
+                alert(`Criando conta para: ${name} - ${phone}`);
+                // Aqui você pode redirecionar para a próxima página ou fazer o cadastro
+                // window.location.href = 'dashboard.html';
+            }
+        }
+
+        // Máscara para telefone
+        function formatPhone(input) {
+            let value = input.value.replace(/\D/g, '');
+            value = value.replace(/(\d{2})(\d)/, '($1) $2');
+            value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            input.value = value;
+        }
+
+        // Aplica máscara nos campos de telefone
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    formatPhone(this);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#1a2332"/>
+  <rect x="40" y="40" width="432" height="432" rx="40" fill="#1a2332"/>
+  <circle cx="256" cy="200" r="70" fill="#00d4ff"/>
+  <path d="M256 285 L210 380 L302 380 Z" fill="#00d4ff"/>
+  <text x="256" y="440" text-anchor="middle" fill="#00f0ff" font-family="Arial,sans-serif" font-size="40" font-weight="bold">PEDIU</text>
+</svg>

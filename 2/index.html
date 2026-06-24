@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta http-equiv="refresh" content="0; url=index.php">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USERVICE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2332 0%, #2d4a6b 100%);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Adicionando CSS do header igual às outras páginas */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .header .logo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-button {
+            background: #00d4ff;
+            color: #1a2332;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #00f0ff;
+            transform: translateY(-1px);
+        }
+
+        /* Ajustando container principal para acomodar header */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .main-button {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            border: 2px solid #00f0ff;
+            color: #1a2332;
+            /* Alterando font-size para 0.9rem */
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .main-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.6);
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+            border-color: #40ffff;
+        }
+
+        .main-button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .buttons-container {
+                gap: 0.6rem;
+            }
+            
+            .logo-main {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .main-button {
+                min-width: 160px;
+                /* Mantendo font-size 0.9rem no mobile também */
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Adicionando header igual às outras páginas -->
+    <div class="header">
+        <div class="logo">USERVICE</div>
+    </div>
+
+    <!-- Movendo conteúdo principal para container separado -->
+    <div class="main-content"> 
+        <div class="buttons-container">
+            <button class="main-button" onclick="handleServiceProvider()">
+                Sou Prestador de Serviço
+            </button>
+            
+            <button class="main-button" onclick="handleServiceSeeker()">
+                Quero Buscar Um Prestador
+            </button>
+
+            <h5>Solicitações Feitas</h5>
+
+            <a class="main-button" href="<?php e ?>">
+                Quero Buscar Um Prestador
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Força modo paisagem e fullscreen ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aguarda um pouco antes de tentar fullscreen para melhor compatibilidade
+            setTimeout(() => {
+                // Tenta entrar em fullscreen
+                const elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(err => {
+                        console.log('Fullscreen não suportado:', err);
+                    });
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                }
+            }, 500);
+
+            // Força orientação paisagem se suportado
+            if (screen.orientation) {
+                if (screen.orientation.lock) {
+                    screen.orientation.lock('landscape').catch(err => {
+                        console.log('Orientação paisagem não suportada:', err);
+                    });
+                }
+            }
+
+            // Alternativa para dispositivos que não suportam screen.orientation.lock
+            if (window.screen && window.screen.lockOrientation) {
+                window.screen.lockOrientation('landscape');
+            } else if (window.screen && window.screen.mozLockOrientation) {
+                window.screen.mozLockOrientation('landscape');
+            } else if (window.screen && window.screen.msLockOrientation) {
+                window.screen.msLockOrientation('landscape');
+            }
+        });
+
+        // Adiciona evento de clique para tentar fullscreen se não funcionou automaticamente
+        document.body.addEventListener('click', function() {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                const elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(err => {
+                        console.log('Fullscreen não suportado:', err);
+                    });
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                }
+            }
+        }, { once: true });
+
+        function handleServiceProvider() {
+            window.location.href = 'login.php';
+        }
+
+        function handleServiceSeeker() {
+            window.location.href = 'buscar.html';
+        }
+    </script>
+</body>
+</html>

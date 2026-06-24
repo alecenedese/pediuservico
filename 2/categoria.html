@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USERVICE - Categoria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1428 0%, #1e3a5f 100%);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .back-button {
+            background: linear-gradient(145deg, #00d4ff, #00f0ff);
+            border: 2px solid #00f0ff;
+            color: #1a2332;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.5);
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.6rem;
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+            align-content: start;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .categories-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .categories-grid::-webkit-scrollbar-track {
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .categories-grid::-webkit-scrollbar-thumb {
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+            border-radius: 4px;
+        }
+
+        .category-card {
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.3), rgba(0, 240, 255, 0.4));
+            border: 2px solid #00f0ff;
+            border-radius: 8px;
+            padding: 0.6rem 0.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 240, 255, 0.2);
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.5), rgba(64, 255, 255, 0.6));
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+            border-color: #40ffff;
+        }
+
+        .category-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .category-name {
+            font-size: 0.8rem; /* aumentando font-size para melhor legibilidade */
+            font-weight: 600;
+            color: #00f0ff;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .services-count {
+            background: linear-gradient(145deg, #00f0ff, #40ffff);
+            color: #0a1428;
+            padding: 0.1rem 0.3rem;
+            border-radius: 10px;
+            font-size: 0.6rem; /* aumentando font-size do contador de serviços */
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .category-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.5rem;
+            line-height: 1.1;
+            text-align: center;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+                .page-title {
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .page-title h1 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00f0ff;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">USERVICE</div>
+        <a href="index.html" class="back-button">← Voltar</a>
+    </div>
+     <div class="page-title">
+        <h1>Selecione uma Categoria</h1>
+    </div>
+
+    <div class="categories-grid" id="categoriesGrid">
+        <!-- Categorias serão inseridas aqui via JavaScript -->
+    </div>
+
+    <script>
+        // Dados simulados das subcategorias
+        const subcategories = [
+            { name: "Limpeza Residencial", services: 45, description: "Serviços completos de limpeza para sua casa" },
+            { name: "Jardinagem", services: 32, description: "Cuidados com jardins, plantas e paisagismo" },
+            { name: "Reparos Domésticos", services: 28, description: "Pequenos reparos e manutenção residencial" },
+            { name: "Organização", services: 18, description: "Organização de ambientes e closets" },
+            { name: "Cuidados com Pets", services: 24, description: "Passeios, cuidados e hospedagem de animais" },
+            { name: "Cozinha", services: 15, description: "Serviços de cozinha e preparo de refeições" },
+            { name: "Lavanderia", services: 12, description: "Lavagem, passagem e cuidados com roupas" },
+            { name: "Segurança", services: 8, description: "Serviços de segurança e monitoramento" }
+        ];
+
+        const categoriesGrid = document.getElementById('categoriesGrid');
+
+        function renderSubcategories(categoriesToRender) {
+            categoriesGrid.innerHTML = categoriesToRender.map(category => `
+                <div class="category-card" onclick="selectSubcategory('${category.name}')">
+                    <div class="category-header">
+                        <div class="category-name">${category.name}</div>
+                        <div class="services-count">${category.services} serviços</div>
+                    </div>
+                    <div class="category-description">${category.description}</div>
+                </div>
+            `).join('');
+        }
+
+        function selectSubcategory(subcategoryName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryName = urlParams.get('categoria') || 'Categoria Selecionada';
+            window.location.href = `opcoes.html?categoria=${encodeURIComponent(categoryName)}&subcategoria=${encodeURIComponent(subcategoryName)}`;
+        }
+
+        // Renderização inicial
+        renderSubcategories(subcategories);
+    </script>
+</body>
+</html>

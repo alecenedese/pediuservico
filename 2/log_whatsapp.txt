@@ -1,0 +1,338 @@
+
+
+=== NOVO ENVIO: 2026-03-16 19:08:15 ===
+Subcategoria: 382 | Total Prestadores: 3
+
+--- Prestador #0 ---
+Nome: Rodrigo Wollinger Campos | Celular: 66999301988
+Numero formatado: 5566999301988
+Mensagem: Rodrigo, novo pedido! 📲
+
+*Empresa de Sistemas (Softwares)*
+Descrição: teste
+
+Confira os detalhes no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556699301988@s.whatsapp.net","content":{"text":"Rodrigo, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0520EA32499A313952C","isGroup":false,"messageTimestamp":1773688098515,"messageType":"ExtendedTextMessage","messageid":"3EB0520EA32499A313952C","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Rodrigo, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #1 ---
+Nome: Alessandro Cenedese | Celular: 66996061179
+Numero formatado: 5566996061179
+Mensagem: Alessandro, novo pedido! 📲
+
+*Empresa de Sistemas (Softwares)*
+Descrição: teste
+
+Confira os detalhes no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556696061179@s.whatsapp.net","content":{"text":"Alessandro, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0F11138111FCD60620F","isGroup":false,"messageTimestamp":1773688107464,"messageType":"ExtendedTextMessage","messageid":"3EB0F11138111FCD60620F","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Alessandro, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #2 ---
+Nome: LopTech Assistência | Celular: 66992927402
+Numero formatado: 5566992927402
+Mensagem: *Pedido disponível* ✅
+
+Serviço: *Empresa de Sistemas (Softwares)*
+Prazo: Até 1 hora (Emergência)
+
+Acesse a plataforma para mais informações.
+HTTP Code: 200
+Resposta: {"chatid":"556692927402@s.whatsapp.net","content":{"text":"*Pedido disponível* ✅\n\nServiço: *Empresa de Sistemas (Softwares)*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0E68DF30DED005FE80B","isGroup":false,"messageTimestamp":1773688116632,"messageType":"ExtendedTextMessage","messageid":"3EB0E68DF30DED005FE80B","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Pedido disponível* ✅\n\nServiço: *Empresa de Sistemas (Softwares)*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","track_id":"","track_source":""}
+
+
+
+=== NOVO ENVIO: 2026-03-16 19:08:40 ===
+Subcategoria: 382 | Total Prestadores: 3
+
+--- Prestador #0 ---
+Nome: Rodrigo Wollinger Campos | Celular: 66999301988
+Numero formatado: 5566999301988
+Mensagem: Oi Rodrigo! 👀
+
+Tem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).
+
+Veja no app e responda!
+HTTP Code: 200
+Resposta: {"chatid":"556699301988@s.whatsapp.net","content":{"text":"Oi Rodrigo! 👀\n\nTem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0A848E07849EBE6FB9D","isGroup":false,"messageTimestamp":1773688121871,"messageType":"ExtendedTextMessage","messageid":"3EB0A848E07849EBE6FB9D","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Oi Rodrigo! 👀\n\nTem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","track_id":"","track_source":""}
+
+
+--- Prestador #1 ---
+Nome: Alessandro Cenedese | Celular: 66996061179
+Numero formatado: 5566996061179
+Mensagem: Alessandro, novo pedido! 📲
+
+*Empresa de Sistemas (Softwares)*
+Descrição: teste
+
+Confira os detalhes no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556696061179@s.whatsapp.net","content":{"text":"Alessandro, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0E93403EDD25A71CB0C","isGroup":false,"messageTimestamp":1773688131149,"messageType":"ExtendedTextMessage","messageid":"3EB0E93403EDD25A71CB0C","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Alessandro, novo pedido! 📲\n\n*Empresa de Sistemas (Softwares)*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #2 ---
+Nome: LopTech Assistência | Celular: 66992927402
+Numero formatado: 5566992927402
+Mensagem: Oi LopTech! 👀
+
+Tem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).
+
+Veja no app e responda!
+HTTP Code: 200
+Resposta: {"chatid":"556692927402@s.whatsapp.net","content":{"text":"Oi LopTech! 👀\n\nTem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB06122F38DF2B196EBB3","isGroup":false,"messageTimestamp":1773688140160,"messageType":"ExtendedTextMessage","messageid":"3EB06122F38DF2B196EBB3","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Oi LopTech! 👀\n\nTem um cliente precisando de *Empresa de Sistemas (Softwares)* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","track_id":"","track_source":""}
+
+
+
+=== NOVO ENVIO: 2026-03-16 19:09:05 ===
+Subcategoria: 382 | Total Prestadores: 3
+
+--- Prestador #0 ---
+Nome: Rodrigo Wollinger Campos | Celular: 66999301988
+Numero formatado: 5566999301988
+Mensagem: Boa noite Rodrigo! 🚀
+
+Mais uma chance de fechar negócio!
+*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)
+
+Corra e confira no app!
+HTTP Code: 200
+Resposta: {"chatid":"556699301988@s.whatsapp.net","content":{"text":"Boa noite Rodrigo! 🚀\n\nMais uma chance de fechar negócio!\n*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)\n\nCorra e confira no app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB06470449A18E19AC948","isGroup":false,"messageTimestamp":1773688147341,"messageType":"ExtendedTextMessage","messageid":"3EB06470449A18E19AC948","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Boa noite Rodrigo! 🚀\n\nMais uma chance de fechar negócio!\n*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)\n\nCorra e confira no app!","track_id":"","track_source":""}
+
+
+--- Prestador #1 ---
+Nome: Alessandro Cenedese | Celular: 66996061179
+Numero formatado: 5566996061179
+Mensagem: Boa noite Alessandro! 🚀
+
+Mais uma chance de fechar negócio!
+*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)
+
+Corra e confira no app!
+HTTP Code: 200
+Resposta: {"chatid":"556696061179@s.whatsapp.net","content":{"text":"Boa noite Alessandro! 🚀\n\nMais uma chance de fechar negócio!\n*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)\n\nCorra e confira no app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB011B44505290664247A","isGroup":false,"messageTimestamp":1773688154669,"messageType":"ExtendedTextMessage","messageid":"3EB011B44505290664247A","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Boa noite Alessandro! 🚀\n\nMais uma chance de fechar negócio!\n*Empresa de Sistemas (Softwares)* - Até 1 hora (Emergência)\n\nCorra e confira no app!","track_id":"","track_source":""}
+
+
+--- Prestador #2 ---
+Nome: LopTech Assistência | Celular: 66992927402
+Numero formatado: 5566992927402
+Mensagem: *Nova oportunidade!* 💼
+
+Uma solicitação de *Empresa de Sistemas (Softwares)* com prazo de Até 1 hora (Emergência) está disponível para você.
+
+Responda pelo app!
+HTTP Code: 200
+Resposta: {"chatid":"556692927402@s.whatsapp.net","content":{"text":"*Nova oportunidade!* 💼\n\nUma solicitação de *Empresa de Sistemas (Softwares)* com prazo de Até 1 hora (Emergência) está disponível para você.\n\nResponda pelo app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB049B3B9BFA1024958D1","isGroup":false,"messageTimestamp":1773688162865,"messageType":"ExtendedTextMessage","messageid":"3EB049B3B9BFA1024958D1","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Nova oportunidade!* 💼\n\nUma solicitação de *Empresa de Sistemas (Softwares)* com prazo de Até 1 hora (Emergência) está disponível para você.\n\nResponda pelo app!","track_id":"","track_source":""}
+
+
+
+=== NOVO ENVIO: 2026-03-16 19:21:56 ===
+Subcategoria: 457 | Total Prestadores: 16
+
+--- Prestador #0 ---
+Nome: Alfa bellos barbearia | Celular: 66996525989
+Numero formatado: 5566996525989
+Mensagem: *Pedido disponível* ✅
+
+Serviço: *Barbeiro*
+Prazo: Até 1 hora (Emergência)
+
+Acesse a plataforma para mais informações.
+HTTP Code: 200
+Resposta: {"chatid":"556696525989@s.whatsapp.net","content":{"text":"*Pedido disponível* ✅\n\nServiço: *Barbeiro*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0D279EAE54A5C4B520B","isGroup":false,"messageTimestamp":1773688920073,"messageType":"ExtendedTextMessage","messageid":"3EB0D279EAE54A5C4B520B","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Pedido disponível* ✅\n\nServiço: *Barbeiro*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","track_id":"","track_source":""}
+
+
+--- Prestador #1 ---
+Nome: Navalhas Barbearia | Celular: 66997203349
+Numero formatado: 5566997203349
+Mensagem: Navalhas, novo pedido! 📲
+
+*Barbeiro*
+Descrição: teste
+
+Confira os detalhes no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556697203349@s.whatsapp.net","content":{"text":"Navalhas, novo pedido! 📲\n\n*Barbeiro*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0C8691A415ACE35304A","isGroup":false,"messageTimestamp":1773688929360,"messageType":"ExtendedTextMessage","messageid":"3EB0C8691A415ACE35304A","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Navalhas, novo pedido! 📲\n\n*Barbeiro*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #2 ---
+Nome: Jociel Barbearia | Celular: 66999137543
+Numero formatado: 5566999137543
+Mensagem: *Solicitação recebida*
+
+Categoria: *Barbeiro*
+Prazo desejado: Até 1 hora (Emergência)
+Obs: teste
+
+Verifique no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556699137543@s.whatsapp.net","content":{"text":"*Solicitação recebida*\n\nCategoria: *Barbeiro*\nPrazo desejado: Até 1 hora (Emergência)\nObs: teste\n\nVerifique no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0DB44A4C26782E669C7","isGroup":false,"messageTimestamp":1773688936316,"messageType":"ExtendedTextMessage","messageid":"3EB0DB44A4C26782E669C7","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Solicitação recebida*\n\nCategoria: *Barbeiro*\nPrazo desejado: Até 1 hora (Emergência)\nObs: teste\n\nVerifique no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #3 ---
+Nome: Braga Barbearia | Celular: 66992267428
+Numero formatado: 5566992267428
+Mensagem: 📢 *Notificação USERVICE*
+
+Novo serviço: *Barbeiro*
+teste
+
+Aguardando sua confirmação.
+HTTP Code: 200
+Resposta: {"chatid":"556692267428@s.whatsapp.net","content":{"text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB08E38B7F0AB29D179D0","isGroup":false,"messageTimestamp":1773688944891,"messageType":"ExtendedTextMessage","messageid":"3EB08E38B7F0AB29D179D0","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","track_id":"","track_source":""}
+
+
+--- Prestador #4 ---
+Nome: Barbaria São Francisco | Celular: 66999102274
+Numero formatado: 5566999102274
+Mensagem: Boa noite Barbaria! 🚀
+
+Mais uma chance de fechar negócio!
+*Barbeiro* - Até 1 hora (Emergência)
+
+Corra e confira no app!
+HTTP Code: 200
+Resposta: {"chatid":"556699102274@s.whatsapp.net","content":{"text":"Boa noite Barbaria! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB059EF3B72106896D66B","isGroup":false,"messageTimestamp":1773688954936,"messageType":"ExtendedTextMessage","messageid":"3EB059EF3B72106896D66B","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Boa noite Barbaria! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","track_id":"","track_source":""}
+
+
+--- Prestador #5 ---
+Nome: Classe A Barbearia | Celular: 66992202049
+Numero formatado: 5566992202049
+Mensagem: *Pedido disponível* ✅
+
+Serviço: *Barbeiro*
+Prazo: Até 1 hora (Emergência)
+
+Acesse a plataforma para mais informações.
+HTTP Code: 200
+Resposta: {"chatid":"556692202049@s.whatsapp.net","content":{"text":"*Pedido disponível* ✅\n\nServiço: *Barbeiro*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0A1460B817F6CA480D3","isGroup":false,"messageTimestamp":1773688962360,"messageType":"ExtendedTextMessage","messageid":"3EB0A1460B817F6CA480D3","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Pedido disponível* ✅\n\nServiço: *Barbeiro*\nPrazo: Até 1 hora (Emergência)\n\nAcesse a plataforma para mais informações.","track_id":"","track_source":""}
+
+
+--- Prestador #6 ---
+Nome: Barbearia Du Chico  | Celular: 66999968204
+Numero formatado: 5566999968204
+Mensagem: *Boa noite, Barbearia!* 👋
+
+Você recebeu uma nova solicitação de serviço em *Barbeiro*.
+⏰ Prazo: Até 1 hora (Emergência)
+📝 Detalhes: teste
+
+Acesse o app para confirmar!
+HTTP Code: 200
+Resposta: {"chatid":"556699968204@s.whatsapp.net","content":{"text":"*Boa noite, Barbearia!* 👋\n\nVocê recebeu uma nova solicitação de serviço em *Barbeiro*.\n⏰ Prazo: Até 1 hora (Emergência)\n📝 Detalhes: teste\n\nAcesse o app para confirmar!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0B44375694CEED917C2","isGroup":false,"messageTimestamp":1773688970544,"messageType":"ExtendedTextMessage","messageid":"3EB0B44375694CEED917C2","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Boa noite, Barbearia!* 👋\n\nVocê recebeu uma nova solicitação de serviço em *Barbeiro*.\n⏰ Prazo: Até 1 hora (Emergência)\n📝 Detalhes: teste\n\nAcesse o app para confirmar!","track_id":"","track_source":""}
+
+
+--- Prestador #7 ---
+Nome: Salão Meri Ramos | Celular: 66999117440
+Numero formatado: 5566999117440
+Mensagem: *Solicitação recebida*
+
+Categoria: *Barbeiro*
+Prazo desejado: Até 1 hora (Emergência)
+Obs: teste
+
+Verifique no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556699117440@s.whatsapp.net","content":{"text":"*Solicitação recebida*\n\nCategoria: *Barbeiro*\nPrazo desejado: Até 1 hora (Emergência)\nObs: teste\n\nVerifique no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB05C6496A81E4B8320B8","isGroup":false,"messageTimestamp":1773688980197,"messageType":"ExtendedTextMessage","messageid":"3EB05C6496A81E4B8320B8","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Solicitação recebida*\n\nCategoria: *Barbeiro*\nPrazo desejado: Até 1 hora (Emergência)\nObs: teste\n\nVerifique no aplicativo.","track_id":"","track_source":""}
+
+
+--- Prestador #8 ---
+Nome: Barbearia Schneider | Celular: 66999540455
+Numero formatado: 5566999540455
+Mensagem: Oi Barbearia! 👀
+
+Tem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).
+
+Veja no app e responda!
+HTTP Code: 200
+Resposta: {"chatid":"556699540455@s.whatsapp.net","content":{"text":"Oi Barbearia! 👀\n\nTem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB056547B3E2F145FC110","isGroup":false,"messageTimestamp":1773688986561,"messageType":"ExtendedTextMessage","messageid":"3EB056547B3E2F145FC110","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Oi Barbearia! 👀\n\nTem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","track_id":"","track_source":""}
+
+
+--- Prestador #9 ---
+Nome: Barbearia Style | Celular: 66999991597
+Numero formatado: 5566999991597
+Mensagem: *Nova oportunidade!* 💼
+
+Uma solicitação de *Barbeiro* com prazo de Até 1 hora (Emergência) está disponível para você.
+
+Responda pelo app!
+HTTP Code: 200
+Resposta: {"chatid":"556699991597@s.whatsapp.net","content":{"text":"*Nova oportunidade!* 💼\n\nUma solicitação de *Barbeiro* com prazo de Até 1 hora (Emergência) está disponível para você.\n\nResponda pelo app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0AD9BDBD2D7D4BCCDDE","isGroup":false,"messageTimestamp":1773688995903,"messageType":"ExtendedTextMessage","messageid":"3EB0AD9BDBD2D7D4BCCDDE","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"*Nova oportunidade!* 💼\n\nUma solicitação de *Barbeiro* com prazo de Até 1 hora (Emergência) está disponível para você.\n\nResponda pelo app!","track_id":"","track_source":""}
+
+
+--- Prestador #10 ---
+Nome: Impacto Barbearia | Celular: 66992204445
+Numero formatado: 5566992204445
+Mensagem: Boa noite Impacto! 🚀
+
+Mais uma chance de fechar negócio!
+*Barbeiro* - Até 1 hora (Emergência)
+
+Corra e confira no app!
+HTTP Code: 200
+Resposta: {"chatid":"556692204445@s.whatsapp.net","content":{"text":"Boa noite Impacto! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB05E5780FF0270283612","isGroup":false,"messageTimestamp":1773689003435,"messageType":"ExtendedTextMessage","messageid":"3EB05E5780FF0270283612","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Boa noite Impacto! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","track_id":"","track_source":""}
+
+
+--- Prestador #11 ---
+Nome: Espaço VIP | Celular: 91999071893
+Numero formatado: 5591999071893
+Mensagem: Boa noite Espaço! 🚀
+
+Mais uma chance de fechar negócio!
+*Barbeiro* - Até 1 hora (Emergência)
+
+Corra e confira no app!
+HTTP Code: 200
+Resposta: {"chatid":"559199071893@s.whatsapp.net","content":{"text":"Boa noite Espaço! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0188096109947748F97","isGroup":false,"messageTimestamp":1773689012937,"messageType":"ExtendedTextMessage","messageid":"3EB0188096109947748F97","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Boa noite Espaço! 🚀\n\nMais uma chance de fechar negócio!\n*Barbeiro* - Até 1 hora (Emergência)\n\nCorra e confira no app!","track_id":"","track_source":""}
+
+
+--- Prestador #12 ---
+Nome: Brothers Barbearia | Celular: 66992301925
+Numero formatado: 5566992301925
+Mensagem: 📢 *Notificação USERVICE*
+
+Novo serviço: *Barbeiro*
+teste
+
+Aguardando sua confirmação.
+HTTP Code: 200
+Resposta: {"chatid":"556692301925@s.whatsapp.net","content":{"text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0165C41F3A9492220F6","isGroup":false,"messageTimestamp":1773689019519,"messageType":"ExtendedTextMessage","messageid":"3EB0165C41F3A9492220F6","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","track_id":"","track_source":""}
+
+
+--- Prestador #13 ---
+Nome: Salão Visual | Celular: 66999851366
+Numero formatado: 5566999851366
+Mensagem: Oi Salão! 👀
+
+Tem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).
+
+Veja no app e responda!
+HTTP Code: 200
+Resposta: {"chatid":"556699851366@s.whatsapp.net","content":{"text":"Oi Salão! 👀\n\nTem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB05BACFF0DFFF4A8870F","isGroup":false,"messageTimestamp":1773689027838,"messageType":"ExtendedTextMessage","messageid":"3EB05BACFF0DFFF4A8870F","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Oi Salão! 👀\n\nTem um cliente precisando de *Barbeiro* (Até 1 hora (Emergência)).\n\nVeja no app e responda!","track_id":"","track_source":""}
+
+
+--- Prestador #14 ---
+Nome: Cavalheiros Barbearia | Celular: 66996093104
+Numero formatado: 5566996093104
+Mensagem: 📢 *Notificação USERVICE*
+
+Novo serviço: *Barbeiro*
+teste
+
+Aguardando sua confirmação.
+HTTP Code: 200
+Resposta: {"chatid":"556696093104@s.whatsapp.net","content":{"text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB0074F00B98768C56C48","isGroup":false,"messageTimestamp":1773689036880,"messageType":"ExtendedTextMessage","messageid":"3EB0074F00B98768C56C48","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"📢 *Notificação USERVICE*\n\nNovo serviço: *Barbeiro*\nteste\n\nAguardando sua confirmação.","track_id":"","track_source":""}
+
+
+--- Prestador #15 ---
+Nome: Luciano Bormann da Silva | Celular: 66992537077
+Numero formatado: 5566992537077
+Mensagem: Luciano, novo pedido! 📲
+
+*Barbeiro*
+Descrição: teste
+
+Confira os detalhes no aplicativo.
+HTTP Code: 200
+Resposta: {"chatid":"556692537077@s.whatsapp.net","content":{"text":"Luciano, novo pedido! 📲\n\n*Barbeiro*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","contextInfo":{}},"convertOptions":"","edited":"","fromMe":true,"id":"5516993129371:3EB005DE765F780B5D89FD","isGroup":false,"messageTimestamp":1773689047035,"messageType":"ExtendedTextMessage","messageid":"3EB005DE765F780B5D89FD","owner":"5516993129371","quoted":"","reaction":"","readChatAttempted":false,"sender":"5516993129371@s.whatsapp.net","senderName":"Alessandro teste programador","source":"web","status":"Pending","text":"Luciano, novo pedido! 📲\n\n*Barbeiro*\nDescrição: teste\n\nConfira os detalhes no aplicativo.","track_id":"","track_source":""}
+

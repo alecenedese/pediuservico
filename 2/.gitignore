@@ -1,0 +1,128 @@
+# ==========================================
+# ARQUIVOS SENSÍVEIS - NÃO ENVIAR!
+# ==========================================
+config.php
+conexao.php
+db.php
+
+# Certificados e chaves Android
+*.keystore
+*.jks
+*.pem
+upload-key.jks
+meu-keystore.keystore
+nova-upload-key.jks
+@alecenedese__my-app.jks
+@alecenedese__my-app.bak.jks
+
+# Credenciais
+credentials.json
+.env
+.env.local
+.env.production
+
+# ==========================================
+# NODE_MODULES E DEPENDÊNCIAS
+# ==========================================
+node_modules/
+vendor/
+bower_components/
+
+# ==========================================
+# PASTAS DE BUILD
+# ==========================================
+build/
+dist/
+.expo/
+.expo-shared/
+android/build/
+android/app/build/
+ios/build/
+
+# ==========================================
+# ARQUIVOS COMPILADOS (APK/AAB)
+# ==========================================
+*.apk
+*.aab
+*.ipa
+
+# ==========================================
+# ARQUIVOS TEMPORÁRIOS
+# ==========================================
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# LOGS
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+debug.log
+
+# ==========================================
+# BACKUPS E COMPACTADOS
+# ==========================================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.sql.gz
+backup/
+backups/
+
+# ==========================================
+# IDEs E EDITORES
+# ==========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# ==========================================
+# GRADLE (Android)
+# ==========================================
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+local.properties
+
+# ==========================================
+# CACHE
+# ==========================================
+.cache/
+*.cache
+metro-cache/
+.metro-cache/
+.webpack-cache/
+
+# ==========================================
+# UPLOADS E MÍDIA (OPCIONAL)
+# ==========================================
+# uploads/
+# imagens/
+# fotos/
+
+# ==========================================
+# OUTROS
+# ==========================================
+.git/
+.gitattributes
+*.orig
+*.lock
+package-lock.json
+yarn.lock
+composer.lock

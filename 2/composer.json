@@ -1,0 +1,10 @@
+{
+    "name": "pediuservico/app",
+    "description": "Pediu Servico - PWA App",
+    "require": {
+        "minishlink/web-push": "^8.0"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

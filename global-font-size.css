@@ -1,0 +1,119 @@
+/* Padronização de tamanhos de fonte para todo o aplicativo USERVICE */
+/* Aumentando fontes para melhor legibilidade */
+
+/* Bloqueia a escala de fonte do sistema (celulares com fonte grande) */
+html {
+    font-size: 16px !important;
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+}
+
+body {
+    font-size: 12px !important;
+}
+
+/* Headers e Títulos */
+h1, .page-title {
+    font-size: 26px !important;
+}
+
+h2, .section-title {
+    font-size: 22px !important;
+}
+
+h3 {
+    font-size: 19px !important;
+}
+
+h4 {
+    font-size: 17px !important;
+}
+
+h5, h6 {
+    font-size: 15px !important;
+}
+
+/* Textos gerais */
+p, span, div {
+    font-size: 15px !important;
+}
+
+/* Labels e inputs */
+.form-label, label {
+    font-size: 15px !important;
+}
+
+.form-input, input, textarea, select {
+    font-size: 15px !important;
+}
+
+/* Botões */
+button, .btn, .action-button, .submit-btn {
+    font-size: 16px !important;
+}
+
+.menu-button {
+    font-size: 15px !important;
+}
+
+/* Cards e itens de lista */
+.card-title {
+    font-size: 18px !important;
+}
+
+.card-text, .card-content {
+    font-size: 15px !important;
+}
+
+/* Navegação */
+.nav-card span {
+    font-size: 13px !important;
+}
+
+.menu-nav a {
+    font-size: 15px !important;
+}
+
+/* Bottom nav */
+.nav-item .nav-label {
+    font-size: 11px !important;
+}
+
+.nav-badge {
+    font-size: 10px !important;
+}
+
+/* Tabs */
+.tab {
+    font-size: 14px !important;
+}
+
+/* Logo */
+.logo, .header .logo {
+    font-size: 19px !important;
+}
+
+/* Links */
+a {
+    font-size: 15px !important;
+}
+
+/* Categorias e subcategorias */
+.category-name, .checkbox-item {
+    font-size: 15px !important;
+}
+
+.accordion-header {
+    font-size: 16px !important;
+}
+
+/* Preços e valores */
+.price-display, .coin-amount {
+    font-size: 30px !important;
+}
+
+/* Mensagens e alertas */
+.success-message, .error-message, .info-message {
+    font-size: 16px !important;
+}
